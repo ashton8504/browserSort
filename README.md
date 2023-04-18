@@ -1,5 +1,9 @@
-# Browser Sort
+# Title: Browser Sort (CS50x Final Project)
+
+## Browser Sort (title of project)
+
 #### Video Demo:  https://www.youtube.com/watch?v=aBn7e3-Neu4
+
 #### Description:   
   Browser Sort is a web application designed to improve internet browsing by providing a customizable dashboard of frequently visited websites. The application is designed to be user-friendly, with a simple and intuitive interface that allows users to easily add, edit, and delete websites. The application is implemented using HTML, CSS, Bootstrap, and JavaScript to provide a seamless user experience.
 
