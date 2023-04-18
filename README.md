@@ -29,3 +29,4 @@ Custom icons
 Export list
 Import list
 Those are random things users just asked for and as PM job you have to decide what if any to prioritize
+Have users being able to plug in websites without HTTPS?
