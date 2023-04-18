@@ -47,4 +47,17 @@ ul#favoriteList {
 
 .list-group-item:hover {
   background-color: #9ac5f0 !important;
+  
+}
+
+/* Icon Styling */
+
+img {
+  border-radius: 50%;
+}
+
+/* Delete Button Styling */
+
+.delete-button {
+  margin: 50px;
 }
