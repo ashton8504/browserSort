@@ -1,6 +1,6 @@
 # Browser Sort
-#### Video Demo:  <https://www.youtube.com/watch?v=aBn7e3-Neu4>
-#### Description:
+#### Video Demo:  https://www.youtube.com/watch?v=aBn7e3-Neu4
+#### Description:   
   Browser Sort is a web application designed to improve internet browsing by providing a customizable dashboard of frequently visited websites. The application is designed to be user-friendly, with a simple and intuitive interface that allows users to easily add, edit, and delete websites. The application is implemented using HTML, CSS, Bootstrap, and JavaScript to provide a seamless user experience.
 
   One of the key features of Browser Sort is the ability to add and delete websites. Users can easily add a website by entering the URL into the input field and clicking the "Add" button. The website will then be added to the dashboard, with an icon and a label displaying the website name. To delete a website, users can simply click the delete button next to the website they want to remove.
