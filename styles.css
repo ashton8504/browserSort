@@ -7,3 +7,26 @@ body {
   width: 100%;
   max-width: 100%;
 }
+
+h1 {
+  text-align: center;
+  padding-top: 50px;;
+}
+
+
+.form-outline{
+  width: 300px;;
+  text-align: center;
+}
+
+/* Light/Dark Mode */
+
+.light-mode {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
