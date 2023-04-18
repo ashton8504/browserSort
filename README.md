@@ -24,9 +24,13 @@ Breakdown of MVP Version:
 POSSIBLE IDEAS:
 
 Reorder list
+
 see or edit the URL for each added item (imagine this could be useful for bookmarking multiple links to the same website but different pages)
+
 Custom icons
+
 Export list
+
 Import list
-Those are random things users just asked for and as PM job you have to decide what if any to prioritize
+
 Have users being able to plug in websites without HTTPS?
