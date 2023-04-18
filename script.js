@@ -40,4 +40,5 @@ function addFavorite() {
   li.appendChild(a);
 
   document.getElementById("favoriteList").appendChild(li);
+  document.getElementById("typeURL").value = " ";
 }

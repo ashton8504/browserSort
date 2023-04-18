@@ -44,3 +44,7 @@ ul#favoriteList {
   padding: 10px;
   border-radius: 200px;
 }
+
+.list-group-item:hover {
+  background-color: #9ac5f0 !important;
+}
