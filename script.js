@@ -58,10 +58,14 @@ function addFavorite() {
   deleteButton.addEventListener("click", function () {
     li.remove();
     const favorites = getFavorites();
+    const newFavorite = { url: urlInput, timestamp: Date.now() };
     const filteredFavorites = favorites.filter(
       favorite => favorite.url !== urlInput
     );
-    saveFavorites(filteredFavorites);
+    const updatedFavorites = [...filteredFavorites, newFavorite].sort(
+      (a, b) => b.timestamp - a.timestamp
+    );
+    saveFavorites(updatedFavorites);
   });
   li.appendChild(deleteButton);
 
@@ -75,8 +79,26 @@ function addFavorite() {
 }
 
 // Allows user to change order of list
+// $(function () {
+//   $("#favoriteList").sortable(); // make the list items draggable
+// });
+
 $(function () {
-  $("#favoriteList").sortable(); // make the list items draggable
+  // Initialize the sortable list
+  $("#favoriteList").sortable();
+
+  // Retrieve the saved order from localStorage, if it exists
+  let savedOrder = localStorage.getItem("favoriteListOrder");
+  if (savedOrder) {
+    // Parse the saved order as JSON and apply it to the list
+    $("#favoriteList").html(JSON.parse(savedOrder));
+  }
+
+  // Save the current order to localStorage whenever the list is sorted
+  $("#favoriteList").on("sortupdate", function () {
+    let order = $(this).html();
+    localStorage.setItem("favoriteListOrder", JSON.stringify(order));
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -140,23 +162,11 @@ function saveFavorites(favorites) {
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
-// Function to retrieve favorite websites from localStorage
-function getFavorites() {
-  return JSON.parse(localStorage.getItem("favorites")) || [];
+function addFavorite(urlInput) {
+  const favorites = getFavorites();
+  const lastPosition =
+    favorites.length > 0 ? favorites[favorites.length - 1].position : -1;
+  const newFavorite = { url: urlInput, position: lastPosition + 1 };
+  favorites.push(newFavorite);
+  saveFavorites(favorites);
 }
-
-/* 
-
-<div class="container-fluid ">
-    <div class="row justify-content-end">
-      <div class="col-lg-1  mt-3">
-        <button id="mode-toggle" type="button" class="btn btn-dark">Dark/Light Mode</button>
-      </div>
-    </div>
-  </div>
-
-- This is my issue if dark mode is selected and i refresh page it switches it back to light mode upon refresh 
-
-- Need to keep order of list if page refreshes 
-
-*/
