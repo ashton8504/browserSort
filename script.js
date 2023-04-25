@@ -1,5 +1,4 @@
 // Toggle Dark/Light mode
-
 const button = document.getElementById("mode-toggle");
 button.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
@@ -13,7 +12,6 @@ function addFavorite() {
   let deleteButton = document.createElement("button");
   let img = document.createElement("img");
 
-  // Create the anchor tag with the favicon image
   a.href = urlInput;
   a.target = "_blank";
   let faviconUrl =
@@ -37,7 +35,6 @@ function addFavorite() {
   li.style.padding = "0.75rem 1.25rem";
   li.appendChild(a);
 
-  // Create the delete button and append it to the list item
   deleteButton.classList.add(
     "btn",
     "btn-danger",
@@ -56,7 +53,6 @@ function addFavorite() {
   });
   li.appendChild(deleteButton);
 
-  // Append the list item to the favorite list and save the favorites to localStorage
   document.getElementById("favoriteList").appendChild(li);
   const favorites = getFavorites();
   const newFavorite = { url: urlInput };
