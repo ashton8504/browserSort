@@ -21,9 +21,9 @@ function addFavorite() {
     this.onerror = null;
     this.src = "https://via.placeholder.com/64x64?text=No+Icon";
   };
-  img.style.borderRadius = "50%";
-  img.style.width = "64px";
-  img.style.height = "64px";
+  // img.style.borderRadius = "30%";
+  img.style.width = "66px";
+  img.style.height = "66px";
   a.appendChild(img);
   li.classList.add(
     "list-group-item",
@@ -61,6 +61,11 @@ function addFavorite() {
 
   document.getElementById("typeURL").value = "";
 }
+
+// Allows user to change order of list
+$(function () {
+  $("#favoriteList").sortable(); // make the list items draggable
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const favorites = getFavorites();
