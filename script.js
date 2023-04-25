@@ -5,6 +5,7 @@ button.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
 });
 
+// Adding URL's to list
 function addFavorite() {
   let urlInput = document.getElementById("typeURL").value;
   let li = document.createElement("li");
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.onerror = null;
       this.src = "https://via.placeholder.com/64x64?text=No+Icon";
     };
-    img.style.borderRadius = "50%";
+    img.style.borderRadius = "35%";
     img.style.width = "64px";
     img.style.height = "64px";
     a.appendChild(img);
