@@ -78,11 +78,6 @@ function addFavorite() {
   document.getElementById("typeURL").value = "";
 }
 
-// Allows user to change order of list
-// $(function () {
-//   $("#favoriteList").sortable(); // make the list items draggable
-// });
-
 $(function () {
   // Initialize the sortable list
   $("#favoriteList").sortable();
