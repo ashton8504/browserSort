@@ -2,7 +2,19 @@
 const button = document.getElementById("mode-toggle");
 button.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
+
+  // Store the selected mode in local storage
+  localStorage.setItem(
+    "mode",
+    document.body.classList.contains("dark-mode") ? "dark" : "light"
+  );
 });
+
+// Retrieve the stored mode from local storage and apply it on page load
+const storedMode = localStorage.getItem("mode");
+if (storedMode === "dark") {
+  document.body.classList.add("dark-mode");
+}
 
 // Adding URL's to list
 function addFavorite() {
@@ -132,3 +144,19 @@ function saveFavorites(favorites) {
 function getFavorites() {
   return JSON.parse(localStorage.getItem("favorites")) || [];
 }
+
+/* 
+
+<div class="container-fluid ">
+    <div class="row justify-content-end">
+      <div class="col-lg-1  mt-3">
+        <button id="mode-toggle" type="button" class="btn btn-dark">Dark/Light Mode</button>
+      </div>
+    </div>
+  </div>
+
+- This is my issue if dark mode is selected and i refresh page it switches it back to light mode upon refresh 
+
+- Need to keep order of list if page refreshes 
+
+*/
