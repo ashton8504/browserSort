@@ -4,16 +4,20 @@ button.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
 
   // Store the selected mode in local storage
-  localStorage.setItem(
-    "mode",
-    document.body.classList.contains("dark-mode") ? "dark" : "light"
-  );
+  if (typeof Storage !== "undefined") {
+    localStorage.setItem(
+      "mode",
+      document.body.classList.contains("dark-mode") ? "dark" : "light"
+    );
+  }
 });
 
 // Retrieve the stored mode from local storage and apply it on page load
-const storedMode = localStorage.getItem("mode");
-if (storedMode === "dark") {
-  document.body.classList.add("dark-mode");
+if (typeof Storage !== "undefined") {
+  const storedMode = localStorage.getItem("mode");
+  if (storedMode === "dark") {
+    document.body.classList.add("dark-mode");
+  }
 }
 
 // Adding URL's to list
@@ -95,10 +99,13 @@ document
 $(function () {
   $("#favoriteList").sortable({
     stop: function () {
-      // get the order of the list items and save it to local storage
-      const listItems = Array.from($("#favoriteList").children());
-      const order = listItems.map(item => item.id);
-      localStorage.setItem("favoriteOrder", JSON.stringify(order));
+      const favorites = [];
+      const lis = document.querySelectorAll("#favoriteList li");
+      lis.forEach(li => {
+        const url = li.querySelector("a").href;
+        favorites.push({ url });
+      });
+      saveFavorites(favorites);
     },
   });
 
@@ -106,7 +113,10 @@ $(function () {
   const order = JSON.parse(localStorage.getItem("favoriteOrder"));
   if (order) {
     for (const itemId of order) {
-      $(`#${itemId}`).appendTo($("#favoriteList"));
+      const item = $(`#${itemId}`);
+      if (item.length) {
+        item.appendTo($("#favoriteList"));
+      }
     }
   }
 });
@@ -174,15 +184,10 @@ function saveFavorites(favorites) {
 
 // Function to retrieve favorite websites from localStorage
 function getFavorites() {
-  let favorites = JSON.parse(localStorage.getItem("favorites"));
-  if (!favorites) {
-    favorites = [];
+  let favorites = [];
+  const savedFavorites = localStorage.getItem("favorites");
+  if (savedFavorites) {
+    favorites = JSON.parse(savedFavorites);
   }
   return favorites;
 }
-
-/* 
-
-- Need to keep order of list if page refreshes 
-
-*/
