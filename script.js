@@ -191,3 +191,30 @@ function getFavorites() {
   }
   return favorites;
 }
+
+//Section for mobile phones
+
+document.addEventListener("DOMContentLoaded", () => {
+  const listItems = document.querySelectorAll("li");
+
+  listItems.forEach(item => {
+    item.draggable = true;
+
+    item.addEventListener("touchstart", e => {
+      e.preventDefault();
+      e.dataTransfer.setData("text/plain", e.target.id);
+    });
+
+    item.addEventListener("touchmove", e => {
+      e.preventDefault();
+      const target = document.elementFromPoint(
+        e.touches[0].clientX,
+        e.touches[0].clientY
+      );
+      if (target && target !== e.target) {
+        const parent = e.target.parentElement;
+        parent.insertBefore(e.target, target.nextSibling);
+      }
+    });
+  });
+});
