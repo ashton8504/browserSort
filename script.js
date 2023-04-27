@@ -93,7 +93,22 @@ document
 
 // Allows user to change order of list
 $(function () {
-  $("#favoriteList").sortable(); // make the list items draggable
+  $("#favoriteList").sortable({
+    stop: function () {
+      // get the order of the list items and save it to local storage
+      const listItems = Array.from($("#favoriteList").children());
+      const order = listItems.map(item => item.id);
+      localStorage.setItem("favoriteOrder", JSON.stringify(order));
+    },
+  });
+
+  // load the order of the list items from local storage
+  const order = JSON.parse(localStorage.getItem("favoriteOrder"));
+  if (order) {
+    for (const itemId of order) {
+      $(`#${itemId}`).appendTo($("#favoriteList"));
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -159,11 +174,15 @@ function saveFavorites(favorites) {
 
 // Function to retrieve favorite websites from localStorage
 function getFavorites() {
-  return JSON.parse(localStorage.getItem("favorites")) || [];
+  let favorites = JSON.parse(localStorage.getItem("favorites"));
+  if (!favorites) {
+    favorites = [];
+  }
+  return favorites;
 }
 
 /* 
-- add a feature so they can just press enter
+
 - Need to keep order of list if page refreshes 
 
 */
