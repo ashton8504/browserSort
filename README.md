@@ -1,4 +1,4 @@
-# Title: Browser Sort 
+# Title: Browser Sort (CS50x Final Project)
 
 ## Browser Sort (title of project)
 

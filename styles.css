@@ -6,17 +6,24 @@ body {
 .container {
   width: 100%;
   max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
-  padding-top: 50px;;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 
-
 .form-outline{
-  width: 300px;;
+  width: 300px;
+  margin: 0 auto;
   text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 /* Light/Dark Mode */
@@ -39,19 +46,64 @@ ul#favoriteList {
   margin: 0;
 }
 
-.border {
-  border: 1px solid black;
+.list-group-item {
   padding: 10px;
-  border-radius: 200px;
+  border-bottom: 1px solid #ccc;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .list-group-item:hover {
-  background-color: #9ac5f0 !important;
-  
+  background-color: #84bbf1 !important;
+  cursor: pointer;
 }
 
-/* Delete Button Styling */
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item img {
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.list-group-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333333;
+  font-size: 16px;
+}
+
+.list-group-item a:hover {
+  text-decoration: underline;
+}
 
 .delete-button {
-  margin: 50px;
+  margin-left: auto;
+  background-color: #dc3545;
+  border: none;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  cursor: pointer;
+}
+
+
+/* List reorder animation */
+ul#favoriteList li {
+  transition: transform 0.2s ease-out;
+}
+
+ul#favoriteList li:hover {
+  transform: scale(1.05);
 }
