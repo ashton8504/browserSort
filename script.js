@@ -147,6 +147,16 @@ function getFavorites() {
 
 /* 
 
+<div class="container-fluid ">
+    <div class="row justify-content-end">
+      <div class="col-lg-1  mt-3">
+        <button id="mode-toggle" type="button" class="btn btn-dark">Dark/Light Mode</button>
+      </div>
+    </div>
+  </div>
+
+- This is my issue if dark mode is selected and i refresh page it switches it back to light mode upon refresh 
+
 - Need to keep order of list if page refreshes 
 
 */
