@@ -19,6 +19,12 @@ if (storedMode === "dark") {
 // Adding URL's to list
 function addFavorite() {
   let urlInput = document.getElementById("typeURL").value;
+
+  // Add protocol if not provided
+  if (!/^https?:\/\//i.test(urlInput)) {
+    urlInput = "https://" + urlInput;
+  }
+
   let li = document.createElement("li");
   let a = document.createElement("a");
   let deleteButton = document.createElement("button");
