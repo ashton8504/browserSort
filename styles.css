@@ -8,6 +8,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
+  
 }
 
 h1 {
@@ -47,6 +48,7 @@ ul#favoriteList {
 }
 
 .list-group-item {
+  position: relative;
   padding: 10px;
   border-bottom: 1px solid #ccc;
   transition: all 0.3s ease;
@@ -84,7 +86,10 @@ ul#favoriteList {
 }
 
 .delete-button {
-  margin-left: auto;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
   background-color: #dc3545;
   border: none;
   color: #ffffff;
@@ -98,7 +103,6 @@ ul#favoriteList {
   cursor: pointer;
 }
 
-
 /* List reorder animation */
 ul#favoriteList li {
   transition: transform 0.2s ease-out;
@@ -106,4 +110,20 @@ ul#favoriteList li {
 
 ul#favoriteList li:hover {
   transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
