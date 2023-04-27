@@ -21,6 +21,7 @@ if (typeof Storage !== "undefined") {
 }
 
 // Adding URL's to list
+// Adding URL's to list
 function addFavorite() {
   let urlInput = document.getElementById("typeURL").value;
 
@@ -192,52 +193,51 @@ function getFavorites() {
   return favorites;
 }
 
-//Section for mobile phones
+//Section for mobile phones not working
+// document.addEventListener("DOMContentLoaded", () => {
+//   const list = document.querySelector("#favoriteList");
+//   const listItems = document.querySelectorAll("li");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const list = document.querySelector("#favoriteList");
-  const listItems = document.querySelectorAll("li");
+//   let order = JSON.parse(localStorage.getItem("order")) || [];
 
-  let order = JSON.parse(localStorage.getItem("order")) || [];
+//   listItems.forEach(item => {
+//     item.draggable = true;
 
-  listItems.forEach(item => {
-    item.draggable = true;
+//     item.addEventListener("touchstart", e => {
+//       e.preventDefault();
+//       e.dataTransfer.setData("text/plain", e.target.id);
+//       window.navigator.vibrate(50);
+//     });
 
-    item.addEventListener("touchstart", e => {
-      e.preventDefault();
-      e.dataTransfer.setData("text/plain", e.target.id);
-      navigator.vibrate([50]); // Add vibration feedback when the touch starts
-    });
+//     item.addEventListener("touchmove", e => {
+//       e.preventDefault();
+//       const target = document.elementFromPoint(
+//         e.touches[0].clientX,
+//         e.touches[0].clientY
+//       );
+//       if (target && target !== e.target) {
+//         const rect = target.getBoundingClientRect();
+//         const threshold = rect.top + rect.height / 2;
+//         const parent = e.target.parentElement;
+//         if (e.touches[0].clientY < threshold) {
+//           parent.insertBefore(e.target, target);
+//         } else {
+//           parent.insertBefore(e.target, target.nextSibling);
+//         }
+//       }
+//     });
 
-    item.addEventListener("touchmove", e => {
-      e.preventDefault();
-      const target = document.elementFromPoint(
-        e.touches[0].clientX,
-        e.touches[0].clientY
-      );
-      if (target && target !== e.target) {
-        const rect = target.getBoundingClientRect();
-        const threshold = rect.top + rect.height / 2;
-        const parent = e.target.parentElement;
-        if (e.touches[0].clientY < threshold) {
-          parent.insertBefore(e.target, target);
-        } else {
-          parent.insertBefore(e.target, target.nextSibling);
-        }
-      }
-    });
+//     item.addEventListener("touchend", e => {
+//       const order = [];
+//       list.querySelectorAll("li").forEach((item, index) => {
+//         order.push(item.id);
+//       });
+//       localStorage.setItem("order", JSON.stringify(order));
+//     });
 
-    item.addEventListener("touchend", e => {
-      const order = [];
-      list.querySelectorAll("li").forEach((item, index) => {
-        order.push(item.id);
-      });
-      localStorage.setItem("order", JSON.stringify(order));
-    });
-
-    const index = order.indexOf(item.id);
-    if (index > -1) {
-      list.insertBefore(item, list.children[index]);
-    }
-  });
-});
+//     const index = order.indexOf(item.id);
+//     if (index > -1) {
+//       list.insertBefore(item, list.children[index]);
+//     }
+//   });
+// });
