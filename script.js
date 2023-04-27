@@ -80,6 +80,17 @@ function addFavorite() {
   document.getElementById("typeURL").value = "";
 }
 
+// This allows users to press enter to submit website
+document
+  .getElementById("typeURL")
+  .addEventListener("keydown", function (event) {
+    if (event.keyCode === 13) {
+      // 13 is the code for the "Enter" key
+      event.preventDefault(); // prevent the default behavior of the "Enter" key
+      addFavorite(); // call the function to save the website
+    }
+  });
+
 // Allows user to change order of list
 $(function () {
   $("#favoriteList").sortable(); // make the list items draggable
@@ -152,17 +163,7 @@ function getFavorites() {
 }
 
 /* 
-
-<div class="container-fluid ">
-    <div class="row justify-content-end">
-      <div class="col-lg-1  mt-3">
-        <button id="mode-toggle" type="button" class="btn btn-dark">Dark/Light Mode</button>
-      </div>
-    </div>
-  </div>
-
-- This is my issue if dark mode is selected and i refresh page it switches it back to light mode upon refresh 
-
+- add a feature so they can just press enter
 - Need to keep order of list if page refreshes 
 
 */
