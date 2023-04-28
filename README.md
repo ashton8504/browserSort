@@ -1,6 +1,6 @@
-# Title: Browser Sort (CS50x Final Project)
+# Title: Webmarks
 
-## Browser Sort (title of project)
+## Webmarks (title of project)
 
 #### Video Demo:  https://www.youtube.com/watch?v=aBn7e3-Neu4
 
