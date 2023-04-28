@@ -50,15 +50,16 @@ ul#favoriteList {
 .list-group-item {
   position: relative;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
-  transition: all 0.3s ease;
+  border: 1px solid #ccc;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
 }
 
+
 .list-group-item:hover {
   background-color: #84bbf1 !important;
-  cursor: pointer;
+  cursor: grab;
 }
 
 .list-group-item:last-child {
@@ -71,7 +72,9 @@ ul#favoriteList {
   width: 40px;
   height: 40px;
   object-fit: cover;
+  cursor: pointer; /* add this line */
 }
+
 
 .list-group-item a {
   display: flex;
@@ -105,7 +108,13 @@ ul#favoriteList {
 
 /* List reorder animation */
 ul#favoriteList li {
-  transition: transform 0.2s ease-out;
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
 }
 
 ul#favoriteList li:hover {
